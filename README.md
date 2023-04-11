@@ -1,6 +1,5 @@
 # mars
-Mars is cool.
 
-An app to see weather & images of mars.
-API 1 : InSight: Mars Weather Service API ( To get weather)
-API 2 : Mars Rover Photos
+# API LIST
+* API 1 : InSight: Mars Weather Service API ( To get weather)
+* API 2 : Mars Rover Photos
