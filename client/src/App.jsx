@@ -1,23 +1,37 @@
-import { useState, useEffect } from 'react'
-import axios from "axios"
-import './App.css'
+import { createContext, useEffect, useState } from "react";
+import "./App.css";
+import { SignUp } from "./components/SignUp";
+import { LogIn } from "./components/LogIn";
+import { currUser, logOut } from "./utilities";
+import { getToken } from "./components/CsrfToken";
+import { Outlet } from "react-router-dom";
+import { NavBar } from "./components/NavBar";
 
-axios
-.get('/whoami')
-.then((response) => {
-  console.log(response.data)
-})
+export const UserContext = createContext(null)
 
 function App() {
-
+  const [user, setUser] = useState(null);
+  getToken()
   useEffect(() => {
-    axios.get('/whoami', response => console.log(response.data))
-  })
+    const getCurrUser = async () => {
+      setUser(await currUser());
+    };
+    getCurrUser();
+  }, []);
+
+
+
   return (
- <>
- <div>Welcome to Mars!</div>
- </>
-  )
+    <div className="App">
+      <h1>Welcome {user && user.name}!</h1>
+      <NavBar />
+
+      <UserContext.Provider value={{user, setUser}} >
+        <Outlet />
+      </UserContext.Provider>
+      <button onClick={()=>logOut(setUser)}>Log Out</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
