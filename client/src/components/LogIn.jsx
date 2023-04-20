@@ -10,7 +10,7 @@ export const LogIn = () => {
  
 
   return (
-    <form
+    <form className="title"
       onSubmit={(e) => [
         e.preventDefault(),
         logIn(email, password, setUser),

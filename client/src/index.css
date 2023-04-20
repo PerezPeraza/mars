@@ -1,7 +1,14 @@
-:root {
+* {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
-  color: rgba(255, 163, 24, 0.87);
+  color: rgb(255, 192, 75);
   background-color: #303541;
-
+}
+.title{
+  text-align: center;
+}
+.iotd{
+  text-align: center;
+ width: 600px;
+ height: 500px;
 }

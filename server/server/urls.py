@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('mars_app.urls')),
+    path('', include('mars_app.urls'))
 ]
