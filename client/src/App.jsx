@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title">Welcome to Mars {user && user.name}!</h1>
+      <h1 className="title">Welcome {user && user.name}</h1>
       <NavBar />
 
       <UserContext.Provider value={{user, setUser}} >

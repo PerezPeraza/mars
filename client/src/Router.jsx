@@ -3,8 +3,9 @@ import { createHashRouter, createBrowserRouter } from 'react-router-dom';
 import { SignUp } from './components/SignUp';
 import { LogIn } from './components/LogIn';
 import Home from './components/Home'
+import SolarFlare from "./components/SolarFlare"
 const Router = createHashRouter([{
-    path: '/',
+    path: '',
     element: <App />,
     children: [
         {
@@ -12,15 +13,19 @@ const Router = createHashRouter([{
             element: <Home />
         },
         {
-            path:"/home/",
+            path:"findflare/",
+            element: <SolarFlare />
+        },
+        {
+            path:"home/",
             element: <Home />
         },
         {
-            path:"/login/",
+            path:"login/",
             element: <LogIn />
         },
         {
-            path:"/signup/",
+            path:"signup/",
             element: <SignUp />
         }
     ]
