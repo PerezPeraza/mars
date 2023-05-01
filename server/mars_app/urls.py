@@ -23,5 +23,8 @@ urlpatterns = [
     path('login/', views.user_log_in, name= 'signin'),
     path('curruser/', views.curr_user, name= 'curruser'),
     path('logout/', views.user_log_out, name= 'signout'),
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('add/', views.addToFavorites, name='add'),
+    path('favorites/', views.seeFavorites,name='see'), 
+    path('delete/', views.deleteFavorite,name='delete'), 
 ]

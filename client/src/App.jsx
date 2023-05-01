@@ -20,7 +20,6 @@ function App() {
   }, []);
 
 
-
   return (
     <div className="App">
       <h1 className="title">Welcome {user && user.name}</h1>
@@ -29,9 +28,9 @@ function App() {
       <UserContext.Provider value={{user, setUser}} >
         <Outlet />
       </UserContext.Provider>
-      <div className="title">
+      {/* <div className="title">
       <button onClick={()=>logOut(setUser)}>Log Out</button>
-      </div>
+      </div> */}
     </div>
   );
 }

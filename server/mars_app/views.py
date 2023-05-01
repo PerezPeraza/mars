@@ -2,8 +2,11 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.core.serializers import serialize
+from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import AppUser
+from .models import Favorites
+from .serializers import FavoriteSerializer
 import json
 
 # Create your views here.
@@ -11,12 +14,6 @@ def index(request):
     the_index = open('static/index.html')
     return HttpResponse(the_index)
 
-# Fake whoami route for --returns json for logged in user
-
-@api_view(['GET'])
-def whoami(request):
-    user = {'Name' : 'Javier', 'Email': 'GMail', }
-    return JsonResponse(data = user)
 
 # Create your views here.
 @api_view(["POST"])
@@ -73,3 +70,28 @@ def curr_user(request):
     else:
         return JsonResponse({"user":None})
     
+@api_view(["POST"])
+def addToFavorites(request):
+    user = request.data['user']
+    title = request.data['title']
+    date = request.data['date']
+    url = request.data['url']
+    try:
+        new_favorite = Favorites.objects.create(user = user, title = title, date = date, url = url)
+        new_favorite.save()
+        return JsonResponse({"success":True})
+    except Exception as e:
+        print(e)
+        return JsonResponse({"success": False})
+    
+@api_view(["GET"])
+def seeFavorites(request):
+    favorites = Favorites.objects.all()
+    serializer = FavoriteSerializer(favorites, many=True)
+    return Response(serializer.data)
+
+@api_view(["DELETE"])
+def deleteFavorite(request, id=None):
+    favorites = Favorites.objects.filter(id=id)
+    favorites.delete()
+    return JsonResponse({"success":True})

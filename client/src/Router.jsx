@@ -4,6 +4,7 @@ import { SignUp } from './components/SignUp';
 import { LogIn } from './components/LogIn';
 import Home from './components/Home'
 import SolarFlare from "./components/SolarFlare"
+import { Favorites } from './pages/Favorites';
 const Router = createHashRouter([{
     path: '',
     element: <App />,
@@ -23,6 +24,10 @@ const Router = createHashRouter([{
         {
             path:"login/",
             element: <LogIn />
+        },
+        {
+            path:"favorites/",
+            element: <Favorites />
         },
         {
             path:"signup/",

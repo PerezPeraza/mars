@@ -22,7 +22,6 @@ export const logIn = async(email, password, setUser) => {
 
 export const currUser = async() =>{
     let response = await axios.get('/user/curruser/')
-    console.log(response.data)
     return response.data
 }
 
@@ -31,4 +30,14 @@ export const logOut = async(setUser) => {
     if(response.data.logout){
         setUser(null)
     }
+}
+
+export const addToFavorites = async(user, imageTitle, date) => {
+    let response = await axios.post('user/add/' , {
+        'user': user,
+        'title' : imageTitle,
+        'date' : date
+    })
+    console.log(response.data.success)
+    return response.data.success
 }

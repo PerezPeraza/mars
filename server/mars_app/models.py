@@ -11,3 +11,9 @@ class AppUser(AbstractUser):
     
     def __str__(self):
         return f"{self.name} | {self.email}"
+    
+class Favorites(models.Model):
+    user = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
+    date = models.CharField(max_length=255)
+    url = models.CharField(max_length=255, default='NA')

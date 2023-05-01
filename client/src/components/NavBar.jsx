@@ -26,7 +26,8 @@ export const NavBar = ()=> {
               <Nav className=" my-2 my-lg-0 "
                 style={{ maxHeight: '100px' }}
                 navbarScroll>
-              <Nav.Link as={Link} to="login/">Log in</Nav.Link>
+              <Nav.Link as={Link} to="favorites/">Favorites</Nav.Link>
+              <Nav.Link as={Link} to="login/">Log in / Log Out</Nav.Link>
                 <Nav.Link as={Link} to="signup/">Sign Up</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
