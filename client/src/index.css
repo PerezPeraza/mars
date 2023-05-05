@@ -1,0 +1,19 @@
+* {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: #C5C6C7;
+  background-color: #1A1A1D;
+}
+.title{
+  text-align: center;
+}
+.iotd{
+  text-align: center;
+ width: 600px;
+ height: 500px;
+ box-shadow: 0 10px 10px rgba(218, 22, 0, 0.3);
+
+}
+footer{
+  padding: 20px;
+}
